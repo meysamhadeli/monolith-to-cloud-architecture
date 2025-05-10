@@ -1,6 +1,6 @@
 using Booking.Configuration;
+using BookingFlight;
 using BuildingBlocks.Web;
-using Flight;
 using Microsoft.Extensions.DependencyInjection;
 using Passenger;
 

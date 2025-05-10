@@ -9,10 +9,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.AddSharedInfrastructure();
 
-builder.AddFlightModules();
 builder.AddIdentityModules();
 builder.AddPassengerModules();
 builder.AddBookingModules();
+builder.AddFlightModules();
 
 var app = builder.Build();
 

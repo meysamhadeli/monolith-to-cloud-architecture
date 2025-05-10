@@ -333,11 +333,21 @@ where TEntryPoint : class
 
     private void AddCustomAppSettings(IConfigurationBuilder configuration)
     {
+        //todo: provide better approach for reading `PostgresOptions`
         configuration.AddInMemoryCollection(
             new KeyValuePair<string, string>[]
             {
                 new(
                     "PostgresOptions:ConnectionString",
+                    PostgresTestcontainer.GetConnectionString()),
+                new(
+                    "PostgresOptions:ConnectionString:Flight",
+                    PostgresTestcontainer.GetConnectionString()),
+                 new(
+                    "PostgresOptions:ConnectionString:Identity",
+                    PostgresTestcontainer.GetConnectionString()),
+                 new(
+                    "PostgresOptions:ConnectionString:Passenger",
                     PostgresTestcontainer.GetConnectionString()),
                 new(
                     "PersistMessageOptions:ConnectionString",

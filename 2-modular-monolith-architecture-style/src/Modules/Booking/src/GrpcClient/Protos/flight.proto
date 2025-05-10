@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package flight;
+package bookingFlight;
 import "google/protobuf/timestamp.proto";
 
 service FlightGrpcService {

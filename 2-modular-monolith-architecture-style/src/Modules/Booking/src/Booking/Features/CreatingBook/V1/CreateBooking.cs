@@ -1,6 +1,7 @@
 namespace Booking.Booking.Features.CreatingBook.V1;
 
 using Ardalis.GuardClauses;
+using BookingFlight;
 using BuildingBlocks.Core;
 using BuildingBlocks.Core.CQRS;
 using BuildingBlocks.Core.Event;
@@ -9,7 +10,6 @@ using BuildingBlocks.EventStoreDB.Repository;
 using BuildingBlocks.Web;
 using Duende.IdentityServer.EntityFramework.Entities;
 using Exceptions;
-using Flight;
 using FluentValidation;
 using Mapster;
 using MapsterMapper;
@@ -99,7 +99,7 @@ internal class CreateBookingCommandHandler : ICommandHandler<CreateBooking, Crea
         Guard.Against.Null(command, nameof(command));
 
         var flight =
-            await _flightGrpcServiceClient.GetByIdAsync(new Flight.GetByIdRequest { Id = command.FlightId.ToString() }, cancellationToken: cancellationToken);
+            await _flightGrpcServiceClient.GetByIdAsync(new BookingFlight.GetByIdRequest { Id = command.FlightId.ToString() }, cancellationToken: cancellationToken);
 
         if (flight is null)
         {
